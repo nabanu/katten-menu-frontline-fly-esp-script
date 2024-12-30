@@ -205,7 +205,7 @@ function AddESP()
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
                     Highlight.OutlineTransparency = .9
-                    Highlight.FillTransparency = 0.9
+                    Highlight.FillTransparency = 0.1
                     Highlight.FillColor = KnifeESPColor
                 end
             elseif Soldiers.Name == "Model" then
@@ -214,7 +214,7 @@ function AddESP()
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
                     Highlight.OutlineTransparency = .9
-                    Highlight.FillTransparency = 0.1
+                    Highlight.FillTransparency = 0.9
                     Highlight.FillColor = WeaponESPColor
                 end
             end
