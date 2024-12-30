@@ -216,7 +216,7 @@ function AddESP()
                             Markers.name_label.shadow.TextStrokeTransparency = 0.61
                             Markers.name_label.shadow.TextTransparency = 0.61
                             
-                            local ChangeMarkerColor = false
+                            local ChangeMarkerColor = true
                             local MarkerColor =  NameTagESPColor
                             if ChangeMarkerColor == true then
                                 Markers.marker.ImageColor3 = MarkerColor
