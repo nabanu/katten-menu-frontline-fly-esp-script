@@ -490,7 +490,7 @@ while true do
             EnableNoclip()
             local VictimCharacter = Victim.Adornee.Parent
             if VictimCharacter ~= workspace then
-                Character.HumanoidRootPart.Velocity = ((VictimCharacter.HumanoidRootPart.Position+Vector3.new(0,0,0)-(VictimCharacter.HumanoidRootPart.CFrame.LookVector*2.5))-Character.HumanoidRootPart.Position) * 19
+                Character.HumanoidRootPart.Velocity = ((VictimCharacter.HumanoidRootPart.Position+Vector3.new(0,0,0)-(VictimCharacter.HumanoidRootPart.CFrame.LookVector*1.5))-Character.HumanoidRootPart.Position) * 24
                 --cap velocity
             else
                 Victim = nil
