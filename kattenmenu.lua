@@ -59,7 +59,7 @@ local KnifeESPColor = Color3.fromRGB(255, 255, 255)
 
 MenuFeatures += 1
 local FeatureName = "Mouse TP"
-local FeatureKey = "leftALT"
+local FeatureKey = "t"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -94,7 +94,7 @@ local Barriers = false
 
 MenuFeatures += 1
 local FeatureName = "Easy kills"
-local FeatureKey = "Delete"
+local FeatureKey = "p"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -130,7 +130,7 @@ FeatureValue.Value = FeatureName
 
 MenuFeatures += 1
 local FeatureName = "Crazy movement"
-local FeatureKey = "MouseBackButton"
+local FeatureKey = "MouseNoButton"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
