@@ -347,17 +347,17 @@ function KnifeFire()
                 --it is a knife
                 local Particles = Instance.new("ParticleEmitter")
                 Particles.Parent = Knife.combat_knife.Knife1.equipment
-                Particles.Color = ColorSequence.new(255,156,106)
+                Particles.Color = ColorSequence.new(Color3.fromRGB(255,156,106))
                 Particles.LightInfluence = 1
                 Particles.LightEmission = 1
                 Particles.Size = NumberSequence.new(0.15)
                 Particles.Texture = "rbxassetid://101816370754006"
                 Particles.Transparency = NumberSequence.new(0.6,1)
-                Particles.Lifetime = 2
+                Particles.Lifetime = NumberRange.new(2)
                 Particles.Rate = 6
-                Particles.Rotation = math.random(-360,360)
-                Particles.Speed.Min = 0.1
-                Particles.Speed.Max = 0.4
+                Particles.Rotation = NumberRange.new(-360,360)
+                Particles.Speed = NumberRange.new(0.1,0.4)
+                Particles.LockedToPart = true
                 Particles.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid8x8
                 Particles.FlipbookFramerate = 70
                 Particles.FlipbookMode = Enum.ParticleFlipbookMode.Loop
