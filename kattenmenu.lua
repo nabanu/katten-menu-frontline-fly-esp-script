@@ -1,4 +1,4 @@
-local SciptTitle = "KattenMenu"
+local SciptTitle = "KattenMenu(nabanus_version)"
 print("starting "..SciptTitle)
 
 
@@ -21,7 +21,7 @@ Frame.ZIndex = 999
 local MenuFeatures = 0
 local FeatureUISize = 20
 local FeatureColor = Color3.fromRGB(0, 0, 0)
-local FeatureEnabledColor = Color3.fromRGB(23, 15, 40)
+local FeatureEnabledColor = Color3.fromRGB(162, 15, 255)
 local TitleColor = Color3.fromRGB(113, 72, 195)
 local FeatureTextColor = Color3.fromRGB(255, 255, 255)
 local TitleTextColor = Color3.fromRGB(33, 33, 33)
@@ -36,7 +36,7 @@ ExampleButton.TextColor3 = FeatureTextColor
 --start menu feature
 MenuFeatures += 1
 local FeatureName = "ESP"
-local FeatureKey = "U"
+local FeatureKey = "Insert"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -59,7 +59,7 @@ local KnifeESPColor = Color3.fromRGB(255, 255, 255)
 
 MenuFeatures += 1
 local FeatureName = "Mouse TP"
-local FeatureKey = "T"
+local FeatureKey = "leftALT"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -94,7 +94,7 @@ local Barriers = false
 
 MenuFeatures += 1
 local FeatureName = "Easy kills"
-local FeatureKey = "P"
+local FeatureKey = "Delete"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -130,7 +130,7 @@ FeatureValue.Value = FeatureName
 
 MenuFeatures += 1
 local FeatureName = "Crazy movement"
-local FeatureKey = "J"
+local FeatureKey = "MouseBackButton"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -466,7 +466,7 @@ while true do
             end
         end
     end
-    if UserInputService:IsKeyDown(Enum.KeyCode.T) then
+    if UserInputService:IsKeyDown(Enum.KeyCode.leftALT) then
         Character.HumanoidRootPart.Velocity = workspace.CurrentCamera.CFrame.LookVector * 100
         Frame["Mouse TP"].BackgroundColor3 = FeatureEnabledColor
     else
