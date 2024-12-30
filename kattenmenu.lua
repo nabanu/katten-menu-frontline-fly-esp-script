@@ -466,7 +466,7 @@ while true do
             end
         end
     end
-    if UserInputService:IsKeyDown(Enum.KeyCode.leftALT) then
+    if UserInputService:IsKeyDown(Enum.KeyCode.t) then
         Character.HumanoidRootPart.Velocity = workspace.CurrentCamera.CFrame.LookVector * 100
         Frame["Mouse TP"].BackgroundColor3 = FeatureEnabledColor
     else
