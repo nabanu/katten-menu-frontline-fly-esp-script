@@ -21,7 +21,7 @@ Frame.ZIndex = 999
 local MenuFeatures = 0
 local FeatureUISize = 20
 local FeatureColor = Color3.fromRGB(0, 0, 0)
-local FeatureEnabledColor = Color3.fromRGB(23, 15, 40)
+local FeatureEnabledColor = Color3.fromRGB(162, 0, 255)
 local TitleColor = Color3.fromRGB(113, 72, 195)
 local FeatureTextColor = Color3.fromRGB(255, 255, 255)
 local TitleTextColor = Color3.fromRGB(33, 33, 33)
@@ -52,8 +52,8 @@ FeatureValue.Name = "FeatureValue"
 FeatureValue.Value = FeatureName
 local ESP = false
 local LastESPUpdate = os.clock()
-local PlayerESPColor = Color3.fromRGB(255, 0, 0)
-local NameTagESPColor = Color3.fromRGB(234, 50, 50)
+local PlayerESPColor = Color3.fromRGB(162, 0, 255)
+local NameTagESPColor = Color3.fromRGB(162, 0, 255)
 local WeaponESPColor = Color3.fromRGB(0, 255, 0)
 local KnifeESPColor = Color3.fromRGB(255, 255, 255)
 
@@ -189,7 +189,7 @@ function AddESP()
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
                     Highlight.OutlineTransparency = .9
-                    Highlight.FillTransparency = 0.5
+                    Highlight.FillTransparency = 0.3
                     Highlight.FillColor = PlayerESPColor
                 elseif Soldiers:FindFirstChild("friendly_marker") or Soldiers:FindFirstChild("fpv_rig") or Soldiers.HumanoidRootPart.Root_M.Position.Magnitude > 1 then
                     if Soldiers:FindFirstChild("EspHighlight") then
@@ -205,7 +205,7 @@ function AddESP()
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
                     Highlight.OutlineTransparency = .9
-                    Highlight.FillTransparency = 0.5
+                    Highlight.FillTransparency = 0.9
                     Highlight.FillColor = KnifeESPColor
                 end
             elseif Soldiers.Name == "Model" then
@@ -214,7 +214,7 @@ function AddESP()
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
                     Highlight.OutlineTransparency = .9
-                    Highlight.FillTransparency = 0.5
+                    Highlight.FillTransparency = 0.3
                     Highlight.FillColor = WeaponESPColor
                 end
             end
