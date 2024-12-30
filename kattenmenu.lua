@@ -1,4 +1,4 @@
-local SciptTitle = "KattenMenu(nabanus_version)"
+local SciptTitle = "KattenMenu"
 print("starting "..SciptTitle)
 
 
@@ -21,7 +21,7 @@ Frame.ZIndex = 999
 local MenuFeatures = 0
 local FeatureUISize = 20
 local FeatureColor = Color3.fromRGB(0, 0, 0)
-local FeatureEnabledColor = Color3.fromRGB(162, 15, 255)
+local FeatureEnabledColor = Color3.fromRGB(23, 15, 40)
 local TitleColor = Color3.fromRGB(113, 72, 195)
 local FeatureTextColor = Color3.fromRGB(255, 255, 255)
 local TitleTextColor = Color3.fromRGB(33, 33, 33)
@@ -52,14 +52,14 @@ FeatureValue.Name = "FeatureValue"
 FeatureValue.Value = FeatureName
 local ESP = false
 local LastESPUpdate = os.clock()
-local PlayerESPColor = Color3.fromRGB(162, 0, 255)
-local NameTagESPColor = Color3.fromRGB(162, 0, 255)
+local PlayerESPColor = Color3.fromRGB(255, 0, 0)
+local NameTagESPColor = Color3.fromRGB(234, 50, 50)
 local WeaponESPColor = Color3.fromRGB(0, 255, 0)
 local KnifeESPColor = Color3.fromRGB(255, 255, 255)
 
 MenuFeatures += 1
 local FeatureName = "Mouse TP"
-local FeatureKey = "t"
+local FeatureKey = "LeftAlt"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -94,7 +94,7 @@ local Barriers = false
 
 MenuFeatures += 1
 local FeatureName = "Easy kills"
-local FeatureKey = "p"
+local FeatureKey = "Delete"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -130,7 +130,7 @@ FeatureValue.Value = FeatureName
 
 MenuFeatures += 1
 local FeatureName = "Crazy movement"
-local FeatureKey = "MouseNoButton"
+local FeatureKey = "J"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -205,7 +205,7 @@ function AddESP()
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
                     Highlight.OutlineTransparency = .9
-                    Highlight.FillTransparency = 0.1
+                    Highlight.FillTransparency = 0.5
                     Highlight.FillColor = KnifeESPColor
                 end
             elseif Soldiers.Name == "Model" then
@@ -214,7 +214,7 @@ function AddESP()
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
                     Highlight.OutlineTransparency = .9
-                    Highlight.FillTransparency = 0.9
+                    Highlight.FillTransparency = 0.5
                     Highlight.FillColor = WeaponESPColor
                 end
             end
@@ -466,14 +466,14 @@ while true do
             end
         end
     end
-    if UserInputService:IsKeyDown(Enum.KeyCode.t) then
+    if UserInputService:IsKeyDown(Enum.KeyCode.LeftAlt) then
         Character.HumanoidRootPart.Velocity = workspace.CurrentCamera.CFrame.LookVector * 100
         Frame["Mouse TP"].BackgroundColor3 = FeatureEnabledColor
     else
         Frame["Mouse TP"].BackgroundColor3 = FeatureColor
     end
     if CrazyMovement == true and Character ~= nil then
-        if UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then
+        if UserInputService:IsKeyDown(Enum.KeyCode.W) then
             Character.HumanoidRootPart.Velocity = Character.HumanoidRootPart.CFrame.LookVector * 100
         end
         if UserInputService:IsKeyDown(Enum.KeyCode.Space) then
@@ -490,7 +490,7 @@ while true do
             EnableNoclip()
             local VictimCharacter = Victim.Adornee.Parent
             if VictimCharacter ~= workspace then
-                Character.HumanoidRootPart.Velocity = ((VictimCharacter.HumanoidRootPart.Position+Vector3.new(0,0,0)-(VictimCharacter.HumanoidRootPart.CFrame.LookVector*1.5))-Character.HumanoidRootPart.Position) * 24
+                Character.HumanoidRootPart.Velocity = ((VictimCharacter.HumanoidRootPart.Position+Vector3.new(0,0,0)-(VictimCharacter.HumanoidRootPart.CFrame.LookVector*2.5))-Character.HumanoidRootPart.Position) * 15
                 --cap velocity
             else
                 Victim = nil
@@ -503,7 +503,7 @@ while true do
         DisableNoclip()
         EasyKills = false
     end
-   if CrazyMovement == true or EasyKills ==  true and Character ~= nil then
+    if CrazyMovement == true or EasyKills ==  true and Character ~= nil then
         if Character.HumanoidRootPart.Velocity.X > 140 then
             Character.HumanoidRootPart.Velocity = Vector3.new(140,Character.HumanoidRootPart.Velocity.Y,Character.HumanoidRootPart.Velocity.Z)
         end
