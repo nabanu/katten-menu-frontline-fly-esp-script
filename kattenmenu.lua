@@ -503,7 +503,7 @@ while true do
         DisableNoclip()
         EasyKills = false
     end
-    if CrazyMovement == true or EasyKills ==  true then
+   if CrazyMovement == true or EasyKills ==  true and Character ~= nil then
         if Character.HumanoidRootPart.Velocity.X > 140 then
             Character.HumanoidRootPart.Velocity = Vector3.new(140,Character.HumanoidRootPart.Velocity.Y,Character.HumanoidRootPart.Velocity.Z)
         end
