@@ -233,7 +233,7 @@ function AddESP()
                     local Highlight = Instance.new("Highlight")
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
-                    Highlight.OutlineTransparency = .9
+                    Highlight.OutlineTransparency = .1
                     Highlight.FillTransparency = 0.1
                     Highlight.FillColor = WeaponESPColor
                 end
