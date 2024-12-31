@@ -21,7 +21,7 @@ Frame.ZIndex = 999
 local MenuFeatures = 0
 local FeatureUISize = 20
 local FeatureColor = Color3.fromRGB(0, 0, 0)
-local FeatureEnabledColor = Color3.fromRGB(162, 0, 255)
+local FeatureEnabledColor = Color3.fromRGB(23, 15, 40)
 local TitleColor = Color3.fromRGB(113, 72, 195)
 local FeatureTextColor = Color3.fromRGB(255, 255, 255)
 local TitleTextColor = Color3.fromRGB(33, 33, 33)
@@ -112,6 +112,24 @@ local EasyKills = false
 local Victim = nil
 
 MenuFeatures += 1
+local FeatureName = "Crazy movement"
+local FeatureKey = "J"
+local MenuFeatureTitle = ExampleButton:Clone()
+MenuFeatureTitle.Name = FeatureName
+MenuFeatureTitle.Parent = Frame
+MenuFeatureTitle.Text = FeatureName .. " - " .. FeatureKey
+MenuFeatureTitle.Position = UDim2.new(0, 0, 0, ((MenuFeatures-1)*FeatureUISize)+20)
+local KeyValue = Instance.new("StringValue")
+KeyValue.Parent = MenuFeatureTitle
+KeyValue.Name = "KeyValue"
+KeyValue.Value = FeatureKey
+local FeatureValue = Instance.new("StringValue")
+FeatureValue.Parent = MenuFeatureTitle
+FeatureValue.Name = "FeatureValue"
+FeatureValue.Value = FeatureName
+local CrazyMovement = false
+
+MenuFeatures += 1
 local FeatureName = "Knife Fire"
 local FeatureKey = "H"
 local MenuFeatureTitle = ExampleButton:Clone()
@@ -129,8 +147,8 @@ FeatureValue.Name = "FeatureValue"
 FeatureValue.Value = FeatureName
 
 MenuFeatures += 1
-local FeatureName = "Crazy movement"
-local FeatureKey = "J"
+local FeatureName = "Custom reticle"
+local FeatureKey = "L"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -144,7 +162,9 @@ local FeatureValue = Instance.new("StringValue")
 FeatureValue.Parent = MenuFeatureTitle
 FeatureValue.Name = "FeatureValue"
 FeatureValue.Value = FeatureName
-local CrazyMovement = false
+local CustomReticle = false
+local CanSetReticle = true
+local LastReticleUpdate = os.clock()
 
 MenuFeatures += 1
 local FeatureName = "Destroy menu"
@@ -189,7 +209,7 @@ function AddESP()
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
                     Highlight.OutlineTransparency = .9
-                    Highlight.FillTransparency = 0.7
+                    Highlight.FillTransparency = 0.9
                     Highlight.FillColor = PlayerESPColor
                 elseif Soldiers:FindFirstChild("friendly_marker") or Soldiers:FindFirstChild("fpv_rig") or Soldiers.HumanoidRootPart.Root_M.Position.Magnitude > 1 then
                     if Soldiers:FindFirstChild("EspHighlight") then
@@ -205,7 +225,7 @@ function AddESP()
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
                     Highlight.OutlineTransparency = .9
-                    Highlight.FillTransparency = 0.1
+                    Highlight.FillTransparency = 0.9
                     Highlight.FillColor = KnifeESPColor
                 end
             elseif Soldiers.Name == "Model" then
@@ -214,7 +234,7 @@ function AddESP()
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
                     Highlight.OutlineTransparency = .9
-                    Highlight.FillTransparency = 0.9
+                    Highlight.FillTransparency = 0.1
                     Highlight.FillColor = WeaponESPColor
                 end
             end
@@ -388,8 +408,34 @@ function KnifeFire()
 end
 
 
-function IncreaseRPM()
-    game.ReplicatedStorage.FrontlinesConfigurations.SoldierMovement.jump.mp5.height_multiplier.Value = 5
+
+function SetReticle()
+    local Gun = nil
+    for _,CheckGun in pairs(workspace:GetChildren()) do
+        if CheckGun.Name == "Model" then
+            Gun = CheckGun
+            for _,Attachments in pairs(Gun:GetChildren()) do
+                if Attachments:FindFirstChild("reticle") then
+                    local Sight = Attachments
+                    Sight.reticle.ImageLabel.Image = "rbxassetid://106681394040192"
+                end
+            end
+        end
+    end
+end
+function RestoreReticle()
+    local Gun = nil
+    for _,CheckGun in pairs(workspace:GetChildren()) do
+        if CheckGun.Name == "Model" then
+            Gun = CheckGun
+            for _,Attachments in pairs(Gun:GetChildren()) do
+                if Attachments:FindFirstChild("reticle") then
+                    local Sight = Attachments
+                    Sight.reticle.ImageLabel.Image = "rbxassetid://13741782316"
+                end
+            end
+        end
+    end
 end
 
 
@@ -429,8 +475,6 @@ UserInputService.InputBegan:Connect(function(input)
                             CheckFeatures.BackgroundColor3 = FeatureColor
                             Victim = nil
                         end
-                    elseif CheckFeatures.FeatureValue.Value == "Knife Fire" then
-                        KnifeFire()
                     elseif CheckFeatures.FeatureValue.Value == "Crazy movement" then
                         if CrazyMovement == false then
                             CrazyMovement = true
@@ -438,6 +482,18 @@ UserInputService.InputBegan:Connect(function(input)
                         else
                             CrazyMovement = false
                             CheckFeatures.BackgroundColor3 = FeatureColor
+                        end
+                    elseif CheckFeatures.FeatureValue.Value == "Knife Fire" then
+                        KnifeFire()
+                    elseif CheckFeatures.FeatureValue.Value == "Custom reticle" then
+                        if CustomReticle == false then
+                            CustomReticle = true
+                            CheckFeatures.BackgroundColor3 = FeatureEnabledColor
+                            SetReticle()
+                        else
+                            CustomReticle = false
+                            CheckFeatures.BackgroundColor3 = FeatureColor
+                            RestoreReticle()
                         end
                     end
                     break
@@ -448,6 +504,7 @@ UserInputService.InputBegan:Connect(function(input)
 end)
 
 while true do
+    wait(0)
     if ESP == true then
         if os.clock() -.25 > LastESPUpdate then
             print("UpdateESP")
@@ -455,7 +512,6 @@ while true do
             LastESPUpdate = os.clock()
         end
     end
-    wait(0)
     local Character = nil
     for _,Soldiers in pairs(workspace:GetChildren()) do
         if Soldiers ~= nil then
@@ -466,6 +522,17 @@ while true do
             end
         end
     end
+    if Character ~= nil and CustomReticle == true then
+        if os.clock() -1 > LastReticleUpdate or CanSetReticle == true then
+            wait(0)
+            print("setReticle")
+            CanSetReticle = false
+            LastReticleUpdate = os.clock()
+            SetReticle()
+        end
+    else
+        CanSetReticle = true
+    end
     if UserInputService:IsKeyDown(Enum.KeyCode.LeftAlt) then
         Character.HumanoidRootPart.Velocity = workspace.CurrentCamera.CFrame.LookVector * 100
         Frame["Mouse TP"].BackgroundColor3 = FeatureEnabledColor
@@ -473,7 +540,7 @@ while true do
         Frame["Mouse TP"].BackgroundColor3 = FeatureColor
     end
     if CrazyMovement == true and Character ~= nil then
-        if UserInputService:IsKeyDown(Enum.KeyCode.W) then
+        if UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then
             Character.HumanoidRootPart.Velocity = Character.HumanoidRootPart.CFrame.LookVector * 100
         end
         if UserInputService:IsKeyDown(Enum.KeyCode.Space) then
@@ -490,7 +557,7 @@ while true do
             EnableNoclip()
             local VictimCharacter = Victim.Adornee.Parent
             if VictimCharacter ~= workspace then
-                Character.HumanoidRootPart.Velocity = ((VictimCharacter.HumanoidRootPart.Position+Vector3.new(0,0,0)-(VictimCharacter.HumanoidRootPart.CFrame.LookVector*2.5))-Character.HumanoidRootPart.Position) * 15
+                Character.HumanoidRootPart.Velocity = ((VictimCharacter.HumanoidRootPart.Position+Vector3.new(0,0,0)-(VictimCharacter.HumanoidRootPart.CFrame.LookVector*1))-Character.HumanoidRootPart.Position) * 23
                 --cap velocity
             else
                 Victim = nil
