@@ -431,7 +431,7 @@ function RestoreReticle()
             for _,Attachments in pairs(Gun:GetChildren()) do
                 if Attachments:FindFirstChild("reticle") then
                     local Sight = Attachments
-                    Sight.reticle.ImageLabel.Image = "rbxassetid://13741782316"
+                    Sight.reticle.ImageLabel.Image = "rbxassetid://84530698691386"
                 end
             end
         end
