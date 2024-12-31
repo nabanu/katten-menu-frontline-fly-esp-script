@@ -417,7 +417,7 @@ function SetReticle()
             for _,Attachments in pairs(Gun:GetChildren()) do
                 if Attachments:FindFirstChild("reticle") then
                     local Sight = Attachments
-                    Sight.reticle.ImageLabel.Image = "rbxassetid://106681394040192"
+                    Sight.reticle.ImageLabel.Image = "rbxassetid://84530698691386"
                 end
             end
         end
