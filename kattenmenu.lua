@@ -1,4 +1,4 @@
-local SciptTitle = "KattenMenu"
+local SciptTitle = "KattenMenu(nabanu´s version)"
 print("starting "..SciptTitle)
 
 
@@ -21,8 +21,8 @@ Frame.ZIndex = 999
 local MenuFeatures = 0
 local FeatureUISize = 20
 local FeatureColor = Color3.fromRGB(0, 0, 0)
-local FeatureEnabledColor = Color3.fromRGB(23, 15, 40)
-local TitleColor = Color3.fromRGB(113, 72, 195)
+local FeatureEnabledColor = Color3.fromRGB(162, 0, 255)
+local TitleColor = Color3.fromRGB(255, 255, 255)
 local FeatureTextColor = Color3.fromRGB(255, 255, 255)
 local TitleTextColor = Color3.fromRGB(33, 33, 33)
 
