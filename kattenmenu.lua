@@ -209,7 +209,7 @@ function AddESP()
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
                     Highlight.OutlineTransparency = .9
-                    Highlight.FillTransparency = 0.9
+                    Highlight.FillTransparency = 0.1
                     Highlight.FillColor = PlayerESPColor
                 elseif Soldiers:FindFirstChild("friendly_marker") or Soldiers:FindFirstChild("fpv_rig") or Soldiers.HumanoidRootPart.Root_M.Position.Magnitude > 1 then
                     if Soldiers:FindFirstChild("EspHighlight") then
@@ -225,7 +225,7 @@ function AddESP()
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
                     Highlight.OutlineTransparency = .9
-                    Highlight.FillTransparency = 0.9
+                    Highlight.FillTransparency = 0.1
                     Highlight.FillColor = KnifeESPColor
                 end
             elseif Soldiers.Name == "Model" then
@@ -233,8 +233,8 @@ function AddESP()
                     local Highlight = Instance.new("Highlight")
                     Highlight.Parent = Soldiers
                     Highlight.Name = "EspHighlight"
-                    Highlight.OutlineTransparency = .1
-                    Highlight.FillTransparency = 0.1
+                    Highlight.OutlineTransparency = .9
+                    Highlight.FillTransparency = 0.9
                     Highlight.FillColor = WeaponESPColor
                 end
             end
