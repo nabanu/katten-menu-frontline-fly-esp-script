@@ -638,7 +638,7 @@ function RestoreReticle()
             for _,Attachments in pairs(Gun:GetChildren()) do
                 if Attachments:FindFirstChild("reticle") then
                     local Sight = Attachments
-                    Sight.reticle.ImageLabel.Image = "rbxassetid://13741782316"
+                    Sight.reticle.ImageLabel.Image = "rbxassetid://84530698691386"
                 end
             end
         end
@@ -867,7 +867,7 @@ while true do
     else
         CanSetReticle = true
     end
-    if UserInputService:IsKeyDown(Enum.KeyCode.T) and LockSettings == false then
+    if UserInputService:IsKeyDown(Enum.KeyCode.LeftAlt) and LockSettings == false then
         Character.HumanoidRootPart.Velocity = workspace.CurrentCamera.CFrame.LookVector * 100
         Frame["Mouse TP"].BackgroundColor3 = FeatureEnabledColor
     else
@@ -891,7 +891,7 @@ while true do
             EnableNoclip()
             local VictimCharacter = Victim.Adornee.Parent
             if VictimCharacter ~= workspace then
-                Character.HumanoidRootPart.Velocity = ((VictimCharacter.HumanoidRootPart.Position+Vector3.new(0,0,0)-(VictimCharacter.HumanoidRootPart.CFrame.LookVector*2.5))-Character.HumanoidRootPart.Position) * 15
+                Character.HumanoidRootPart.Velocity = ((VictimCharacter.HumanoidRootPart.Position+Vector3.new(0,0,0)-(VictimCharacter.HumanoidRootPart.CFrame.LookVector*2.5))-Character.HumanoidRootPart.Position) * 24
                 --cap velocity
             else
                 Victim = nil
