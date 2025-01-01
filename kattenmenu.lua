@@ -1,4 +1,4 @@
-local SciptTitle = "KattenMenu"
+local SciptTitle = "KattenMenu(nabanu version="
 print("starting "..SciptTitle)
 
 
@@ -23,10 +23,10 @@ Frame.ZIndex = 999
 local MenuFeatures = 0
 local FeatureUISize = 20
 local FeatureColor = Color3.fromRGB(0, 0, 0)
-local FeatureEnabledColor = Color3.fromRGB(23, 15, 40)
-local TitleColor = Color3.fromRGB(113, 72, 195)
+local FeatureEnabledColor = Color3.fromRGB(162, 0, 255)
+local TitleColor = Color3.fromRGB(160, 15, 250)
 local FeatureTextColor = Color3.fromRGB(255, 255, 255)
-local TitleTextColor = Color3.fromRGB(33, 33, 33)
+local TitleTextColor = Color3.fromRGB(255, 255, 255)
 
 local ExampleButton = Instance.new("TextLabel")
 ExampleButton.ZIndex = 1000
@@ -38,7 +38,7 @@ ExampleButton.TextColor3 = FeatureTextColor
 --start menu feature
 MenuFeatures += 1
 local FeatureName = "ESP"
-local FeatureKey = "U"
+local FeatureKey = "Insert"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -54,14 +54,14 @@ FeatureValue.Name = "FeatureValue"
 FeatureValue.Value = FeatureName
 local ESP = false
 local LastESPUpdate = os.clock()
-local PlayerESPColor = Color3.fromRGB(255, 0, 0)
-local NameTagESPColor = Color3.fromRGB(234, 50, 50)
+local PlayerESPColor = Color3.fromRGB(162, 0, 255)
+local NameTagESPColor = Color3.fromRGB(162, 0, 255)
 local WeaponESPColor = Color3.fromRGB(0, 255, 0)
 local KnifeESPColor = Color3.fromRGB(255, 255, 255)
 
 MenuFeatures += 1
 local FeatureName = "Mouse TP"
-local FeatureKey = "T"
+local FeatureKey = "LeftAlt"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -96,7 +96,7 @@ local Barriers = false
 
 MenuFeatures += 1
 local FeatureName = "Easy kills"
-local FeatureKey = "P"
+local FeatureKey = "Delete"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -133,7 +133,7 @@ local CrazyMovement = false
 
 MenuFeatures += 1
 local FeatureName = "Increase hitbox"
-local FeatureKey = "O"
+local FeatureKey = "Home"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -237,7 +237,7 @@ FeatureValue.Value = FeatureName
 
 MenuFeatures += 1
 local FeatureName = "One handed mode"
-local FeatureKey = "Y"
+local FeatureKey = "Z"
 local MenuFeatureTitle = ExampleButton:Clone()
 MenuFeatureTitle.Name = FeatureName
 MenuFeatureTitle.Parent = Frame
@@ -337,15 +337,15 @@ function AddESP()
                     Highlight.FillTransparency = 0.5
                     Highlight.FillColor = KnifeESPColor
                 end
-                --elseif Soldiers.Name == "Model" then
-                --if not Soldiers:FindFirstChild("EspHighlight") then
-                --local Highlight = Instance.new("Highlight")
-                --Highlight.Parent = Soldiers
-                --Highlight.Name = "EspHighlight"
-                --Highlight.OutlineTransparency = .9
-                --Highlight.FillTransparency = 0.5
-                --Highlight.FillColor = WeaponESPColor
-                --end
+                elseif Soldiers.Name == "Model" then
+                if not Soldiers:FindFirstChild("EspHighlight") then
+                local Highlight = Instance.new("Highlight")
+                Highlight.Parent = Soldiers
+                Highlight.Name = "EspHighlight"
+                Highlight.OutlineTransparency = .9
+                Highlight.FillTransparency = 0.5
+                Highlight.FillColor = WeaponESPColor
+                end
             end
         end
     end
@@ -624,7 +624,7 @@ function SetReticle()
             for _,Attachments in pairs(Gun:GetChildren()) do
                 if Attachments:FindFirstChild("reticle") then
                     local Sight = Attachments
-                    Sight.reticle.ImageLabel.Image = "rbxassetid://106681394040192"
+                    Sight.reticle.ImageLabel.Image = "rbxassetid://84530698691386"
                 end
             end
         end
